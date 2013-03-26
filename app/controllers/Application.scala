@@ -7,6 +7,7 @@ import play.api.data._
 import play.api.data.Forms._
 
 import models.Task
+import models.User
   
 object Application extends Controller {
   
@@ -37,4 +38,12 @@ object Application extends Controller {
 		  Task.delete(id)
 		  Redirect(routes.Application.tasks)
   }
+  
+  def deleteUser(id: Long) = Action {
+	  	  User.delete(id)
+	  	  Redirect(routes.Application.tasks)
+  }
+  
+  def newUser = TODO
+  def users = TODO
 }
