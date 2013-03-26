@@ -9,14 +9,14 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
    "postgresql" % "postgresql" % "8.4-702.jdbc4",
-   "securesocial" %% "securesocial" % "2.0.12",
+   "securesocial" %% "securesocial" % "master-SNAPSHOT",
     jdbc,
     anorm
   )
 
 
-  val main = play.Project(appName, appVersion, appDependencies,mainLang = SCALA).settings(
-    resolvers += Resolver.url("sbt-plugin-snapshots", url("http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns)
-  )
+  val main = play.Project(appName, appVersion, appDependencies).settings(
+		  resolvers += Resolver.url("sbt-plugin-snapshots", new URL("http://repo.scala-sbt.org/scalasbt/sbt-plugin-snapshots/"))(Resolver.ivyStylePatterns)
+		  )
 
 }
