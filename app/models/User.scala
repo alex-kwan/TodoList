@@ -20,10 +20,10 @@ object User {
   def all(): List[User] = DB.withConnection { implicit c =>
   SQL("select * from user").as(user *)
 }
- def create(label: String) {
+ def create(name: String) {
   DB.withConnection { implicit c =>
     SQL("insert into user (name) values ({name})").on(
-      'label -> label
+      'name -> name
     ).executeUpdate()
   }
 }
